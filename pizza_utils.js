@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getInscriptionUtxo } from "./utils.js";
+import { getInscriptionUtxo, getTimestamp } from "./utils.js";
 
 /**
  * Build the pets payload, will fetch the utxo corresponding to each pet
@@ -55,7 +55,7 @@ export const createOrder = async (payload) => {
         );
         return data.data
     } catch (error) {
-        console.error('[ERROR] HTTP Error while creating the order on pizzapets.fun ❌')
+        console.error(`[${getTimestamp()}][ERROR] HTTP Error while creating the order on pizzapets.fun ❌`)
         return -1
     }
 }
@@ -83,7 +83,7 @@ export const getPsbt = async (order_id, wallet, fee) => {
         );
         return data.data
     } catch (error) {
-        console.error('[ERROR] HTTP Error while fetching the order psbt from ordinalsbot.com ❌')
+        console.error(`[${getTimestamp()}][ERROR] HTTP Error while fetching the order psbt from ordinalsbot.com ❌`)
         return -1
     }
 }

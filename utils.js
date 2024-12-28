@@ -89,3 +89,15 @@ export const getPetUtxoStatus = async (pet_id) => {
     const tx_status = await getTxStatus(utxo.txid)
     return tx_status.confirmed
 }
+
+export const getTimestamp = () => {
+    const now = new Date();
+    return now.toLocaleString('en-US', {
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    }).replace(',', '');
+};
