@@ -56,6 +56,7 @@ Example output (11$ gas fees per tx to take care of 5 pets):
 [12/28 07:13:16][INFO] Transaction confirmed ! ✨
 [12/28 07:13:16][INFO] Waiting for the pets to be sent back.. Will check every 30 seconds 🕒
 [12/28 07:13:17][INFO] Pets sent back ! ✨
+[12/28 07:13:17][INFO] Sleeping until next loop 💤
 ....
 ```
 

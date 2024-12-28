@@ -50,9 +50,8 @@ const run = async (params, item) => {
         if(tx.confirmed) {
             console.log(`[${getTimestamp()}][INFO] Transaction confirmed ! ✨`)
             break
-        } else {
-            await new Promise(resolve => setTimeout(resolve, 30000));
         }
+        await new Promise(resolve => setTimeout(resolve, 30000));
     }
     // Then need to wait for the tx sending the pets back to be confirmed
     console.log(`[${getTimestamp()}][INFO] Waiting for the pets to be sent back.. Will check every 30 seconds 🕒`)
@@ -62,9 +61,8 @@ const run = async (params, item) => {
         if(pet_status) {
             console.log(`[${getTimestamp()}][INFO] Pets sent back ! ✨`)
             break
-        } else {
-            await new Promise(resolve => setTimeout(resolve, 30000));
         }
+        await new Promise(resolve => setTimeout(resolve, 30000));
     }
 };
 
@@ -97,8 +95,15 @@ const main = () => {
         }
     }, 27000000);
     // Initial run
-    feed_then_shower(params);
-    console.log(`[${getTimestamp()}][INFO] Sleeping until next loop 💤`)
+    feed_then_shower(params)
+        .then(() => {
+            console.log(`[${getTimestamp()}][INFO] Sleeping until next loop 💤`)
+        })
+        .catch((error) => {
+            console.error(`[${getTimestamp()}][ERROR] Error in initial run: ${error} ❌`);
+            console.error(`[${getTimestamp()}] Stopping process.. ❌`)
+            process.exit(1)
+        })
 }
 
 const params = {
