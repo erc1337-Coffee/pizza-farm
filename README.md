@@ -14,7 +14,7 @@ This is a script to automatically take care of your Pizza Pets., every 7 hours a
 ## Installation
 
 ```bash
-git clone https://github.com/coffeeweed/pizza-farm.git
+git clone https://github.com/erc1337-Coffee/pizza-farm
 cd pizza-farm
 yarn
 cp .env.example .env
