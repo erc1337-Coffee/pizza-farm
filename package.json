@@ -1,0 +1,21 @@
+{
+  "name": "petsfarm",
+  "version": "1.0.0",
+  "description": "Bitcoin PizzaPets farming automation",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@noble/secp256k1": "1.7.1",
+    "@unisat/wallet-sdk": "^1.8.0",
+    "axios": "^1.7.8",
+    "bip39": "^3.1.0",
+    "dotenv": "^16.4.7"
+  }
+}
