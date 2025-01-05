@@ -55,6 +55,8 @@ const run = async (params, item) => {
     }
     // Then need to wait for the tx sending the pets back to be confirmed
     console.log(`[${getTimestamp()}][INFO] Waiting for the pets to be sent back.. Will check every 30 seconds 🕒`)
+    // Wait 10 seconds to ensure the getPetUtxoStatus wont be actively indexing the tx/late and make the tx fail
+    await new Promise(resolve => setTimeout(resolve, 10000));
     while(true) {
         // Only check the first pet, if it's confirmed, the others are confirmed too
         const pet_status = await getPetUtxoStatus(params.pet_ids[0])
